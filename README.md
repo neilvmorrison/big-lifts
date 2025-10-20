@@ -264,6 +264,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on how to get started.
+For a full product overview, please see our [Product Overview page](PRODUCT_OVERVIEW.md).
 
 ## 📝 Pull Request Template
 
