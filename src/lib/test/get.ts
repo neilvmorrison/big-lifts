@@ -6,7 +6,7 @@ export async function getTest({
   throwError?: boolean;
 }): Promise<{ message: string }> {
   if (throwError) {
-    return new Promise((resolve, reject) => {
+    return new Promise((_, reject) => {
       setTimeout(() => reject({ message: "The test returned an error" }), 1500);
     });
   }
