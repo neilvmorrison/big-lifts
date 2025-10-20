@@ -1,36 +1,311 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Big Lifts
 
-## Getting Started
+Big Lifts is a comprehensive fitness-focused application that empowers athletes of all levels to reach their peak performance. Create workout plans, generate Workouts of the Day, track your calorie intake and plan your meals, monitor your progress visually by uploading progress photos. Use our library of exsting workout programs or build your own using our exhaustive library of exercises and track your progress down to the set using our robust progress tracking system.
 
-First, run the development server:
+## Product Overview
+
+The application combines workout planning, nutrition tracking, progress monitoring, and comprehensive exercise libraries into a single, intuitive platform. With robust progress tracking capabilities and visual progress monitoring through photo uploads, users can stay motivated and see tangible results from their efforts.
+
+### Primary Features
+
+#### 🏋️ **Workout Planning & Management**
+
+- **Custom Workout Plans**: Create personalized workout routines tailored to your fitness goals
+- **Workout of the Day (WOD)**: Generate daily workout challenges to keep your training fresh and engaging
+- **Exercise Library**: Access an exhaustive library of exercises with detailed instructions and variations
+- **Program Library**: Choose from existing workout programs or build your own from scratch
+
+#### 📊 **Progress Tracking**
+
+- **Set-by-Set Tracking**: Monitor your progress down to the individual set level
+- **Visual Progress Monitoring**: Upload progress photos to track physical transformations over time
+- **Performance Analytics**: Comprehensive tracking system to analyze your strength gains and improvements
+- **Goal Setting**: Set and track fitness milestones and achievements
+
+#### 🍎 **Nutrition & Meal Planning**
+
+- **Calorie Tracking**: Monitor your daily calorie intake with detailed nutritional breakdowns
+- **Meal Planning**: Plan your meals in advance to support your fitness goals
+- **Nutritional Insights**: Get detailed information about macronutrients and micronutrients
+- **Dietary Goal Alignment**: Ensure your nutrition supports your workout objectives
+
+#### 👤 **User Experience**
+
+- **Personalized Dashboard**: Customized interface showing your activity overview and progress
+- **Profile Management**: Comprehensive user profiles with fitness goals and preferences
+- **Responsive Design**: Access your fitness data on any device with our mobile-friendly interface
+- **Theme Support**: Choose between light and dark themes for comfortable viewing
+
+#### 🔐 **Security & Reliability**
+
+- **Magic Link Authentication**: Secure, passwordless login system
+- **Data Privacy**: Your fitness data is protected with enterprise-grade security
+- **Real-time Sync**: Your progress syncs across all devices in real-time
+- **Offline Capability**: Continue tracking workouts even without internet connection
+
+## 🚀 Tech Stack
+
+### Frontend
+
+- **Next.js 15.5.3** - React framework with App Router
+- **React 19.1.0** - UI library
+- **TypeScript 5.9.3** - Type safety and developer experience
+- **Tailwind CSS 4** - Utility-first CSS framework
+- **shadcn/ui** - Modern component library built on Radix UI and Tailwind CSS
+- **Radix UI** - Accessible component primitives (used by shadcn/ui)
+- **Lucide React** - Icon library
+- **React Icons** - Additional icon components
+
+### Backend & Database
+
+- **Supabase** - Backend-as-a-Service
+  - PostgreSQL database
+  - Authentication (magic link auth)
+  - Real-time subscriptions
+  - Row Level Security (RLS)
+- **Supabase SSR** - Server-side rendering support
+
+### Development Tools
+
+- **ESLint** - Code linting
+- **Turbopack** - Fast bundler for development
+- **PostCSS** - CSS processing
+- **Yarn** - Package manager
+
+### Key Features
+
+- Magic link authentication
+- User profile management
+- Dashboard with activity overview
+- Modern UI with shadcn/ui components
+- Responsive design with dark/light theme support
+- Type-safe API handling
+- Form validation and error handling
+
+## 📋 Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js** (v18 or higher)
+- **Yarn** package manager
+- **Git**
+- **Supabase CLI** (for local development)
+
+## 🛠️ Getting Started
+
+### 1. Clone the Repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <repository-url>
+cd big-lifts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+yarn install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 3. Environment Setup
 
-## Learn More
+Create a `.env.local` file in the root directory:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+# Supabase Configuration
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+SUPABASE_SERVICE_ROLE_KEY=your_supabase_service_role_key
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Optional: OpenAI API Key for Supabase AI features
+OPENAI_API_KEY=your_openai_api_key
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. Database Setup
 
-## Deploy on Vercel
+#### Option A: Use Remote Supabase Instance
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Create a new project at [supabase.com](https://supabase.com)
+2. Run the migration:
+   ```bash
+   supabase db push
+   ```
+3. Generate TypeScript types:
+   ```bash
+   yarn db:gen-types
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+#### Option B: Local Development with Supabase CLI
+
+1. Start Supabase locally:
+   ```bash
+   supabase start
+   ```
+2. Apply migrations:
+   ```bash
+   supabase db reset
+   ```
+3. Generate TypeScript types:
+   ```bash
+   yarn db:gen-types
+   ```
+
+### 5. Start Development Server
+
+```bash
+yarn dev
+```
+
+The application will be available at [http://localhost:3000](http://localhost:3000).
+
+### 6. Access Supabase Studio (Local Development)
+
+If using local Supabase, you can access the dashboard at [http://localhost:54323](http://localhost:54323).
+
+## 📁 Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router
+│   ├── (dashboard)/       # Dashboard route group
+│   ├── api/               # API routes
+│   ├── authentication/    # Auth pages
+│   └── layout.tsx         # Root layout
+├── components/            # React components
+│   ├── ui/               # shadcn/ui components
+│   └── ...               # Feature-specific components
+├── hooks/                 # Custom React hooks
+├── lib/                   # Utility libraries
+│   ├── api/              # API handling
+│   ├── auth.ts           # Authentication utilities
+│   ├── supabase/         # Supabase configuration
+│   └── utils.ts          # Utility functions (includes shadcn/ui cn helper)
+├── constants/             # Application constants
+└── middleware.ts          # Next.js middleware
+
+supabase/
+├── config.toml           # Supabase configuration
+└── migrations/           # Database migrations
+
+components.json            # shadcn/ui configuration
+```
+
+## 🧪 Available Scripts
+
+- `yarn dev` - Start development server with Turbopack
+- `yarn build` - Build the application for production
+- `yarn start` - Start production server
+- `yarn lint` - Run ESLint
+- `yarn db:gen-types` - Generate TypeScript types from Supabase schema
+
+## 🔧 Development Workflow
+
+### Database Changes
+
+1. Create a new migration:
+   ```bash
+   supabase migration new your_migration_name
+   ```
+2. Write your SQL in the generated migration file
+3. Apply the migration:
+   ```bash
+   supabase db reset  # For local development
+   # or
+   supabase db push   # For remote database
+   ```
+4. Regenerate types:
+   ```bash
+   yarn db:gen-types
+   ```
+
+### Adding New Features
+
+1. Create components in `src/components/`
+2. Add API routes in `src/app/api/`
+3. Update types in `src/lib/supabase/types/database.ts` if needed
+4. Test thoroughly before submitting PR
+
+### Working with shadcn/ui Components
+
+This project uses shadcn/ui for UI components. To add new components:
+
+1. **Install a new component:**
+   ```bash
+   npx shadcn@latest add [component-name]
+   ```
+2. **Available components:** Check the [shadcn/ui documentation](https://ui.shadcn.com/docs/components) for all available components
+
+3. **Customization:** Components are located in `src/components/ui/` and can be customized as needed
+
+4. **Configuration:** The shadcn/ui configuration is in `components.json` with the "new-york" style preset
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Connect your GitHub repository to Vercel
+2. Add environment variables in Vercel dashboard
+3. Deploy automatically on push to main branch
+
+### Other Platforms
+
+The application can be deployed to any platform that supports Next.js:
+
+- Netlify
+- Railway
+- DigitalOcean App Platform
+- AWS Amplify
+
+## 📚 API Documentation
+
+### Authentication
+
+- **Magic Link Login**: `POST /api/auth/signin`
+- **Sign Out**: `POST /api/auth/signout`
+- **User Profile**: `GET /api/user/profile`
+
+### Database Schema
+
+The application uses a PostgreSQL database with the following main tables:
+
+- `user_profiles` - User information and metadata
+- `auth.users` - Supabase authentication users
+
+## 🐛 Troubleshooting
+
+### Common Issues
+
+1. **Supabase Connection Issues**
+
+   - Verify your environment variables
+   - Check if Supabase project is active
+   - Ensure RLS policies are properly configured
+
+2. **Type Generation Issues**
+
+   - Run `supabase db reset` to ensure schema is up to date
+   - Check if migration files are properly formatted
+
+3. **Build Issues**
+   - Clear `.next` folder and rebuild
+   - Check for TypeScript errors
+   - Verify all dependencies are installed
+
+### Getting Help
+
+- Check the [Supabase Documentation](https://supabase.com/docs)
+- Review [Next.js Documentation](https://nextjs.org/docs)
+- Open an issue in this repository
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on how to get started.
+
+## 📝 Pull Request Template
+
+When submitting a pull request, please use our [Pull Request Template](.github/pull_request_template.md) to ensure all necessary information is included.
