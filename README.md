@@ -19,7 +19,7 @@ For a full product overview, please see our [Product Overview page](PRODUCT_OVER
 
 ### Backend & Database
 
-- **Supabase** - Backend-as-a-Service
+- **Supabase** - Backend-as-a-Service (BaaS)
   - PostgreSQL database
   - Authentication (magic link auth)
   - Real-time subscriptions
