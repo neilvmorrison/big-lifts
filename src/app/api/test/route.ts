@@ -1,9 +1,9 @@
 import { getTest } from "@/lib/test/get";
 import { tryCatch } from "@/lib/try-catch";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export async function GET(request: NextRequest) {
-  const result = await tryCatch(() => getTest({ throwError: false }));
+export async function GET() {
+  const result = await tryCatch(() => getTest({}));
 
   if (result.error) {
     const message =
