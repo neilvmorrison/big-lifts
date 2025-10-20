@@ -1,6 +1,8 @@
 # Big Lifts
 
-Big Lifts is a comprehensive fitness-focused application that empowers athletes of all levels to reach their peak performance. Create workout plans, generate Workouts of the Day, track your calorie intake and plan your meals, monitor your progress visually by uploading progress photos. Use our library of exsting workout programs or build your own using our exhaustive library of exercises and track your progress down to the set using our robust progress tracking system.
+Big Lifts is a comprehensive fitness platform that empowers athletes of all levels to reach their peak performance. Plan personalized workouts, generate daily challenges, track nutrition and meals, and monitor progress through comprehensive check-ins and visual photo uploads. Choose from our extensive library of workout programs or build your own using our exhaustive exercise database, with detailed set-by-set progress tracking to keep you motivated and on track toward your goals.
+
+For a full product overview, please see our [Product Overview page](PRODUCT_OVERVIEW.md).
 
 ## 🚀 Tech Stack
 
@@ -264,7 +266,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🤝 Contributing
 
 We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details on how to get started.
-For a full product overview, please see our [Product Overview page](PRODUCT_OVERVIEW.md).
 
 ## 📝 Pull Request Template
 
